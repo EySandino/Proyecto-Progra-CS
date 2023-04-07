@@ -1,12 +1,14 @@
-package GUI;
+package AdminSystem;
 
+import GUI.*;
 import java.awt.Color;
 
-public class TransportWindow extends javax.swing.JFrame {
+public class DBproducts extends javax.swing.JFrame {
+    
     
     int xMouse, yMouse;
     
-    public TransportWindow() {
+    public DBproducts() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -27,6 +29,7 @@ public class TransportWindow extends javax.swing.JFrame {
         setResizable(false);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setPreferredSize(new java.awt.Dimension(953, 584));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         header.setBackground(new java.awt.Color(255, 255, 255));
@@ -71,30 +74,30 @@ public class TransportWindow extends javax.swing.JFrame {
             .addComponent(exitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jLabel1.setText("transporte");
+        jLabel1.setText("DBproductos");
 
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addGap(0, 910, Short.MAX_VALUE)
-                .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(448, 448, 448))
+            .addGroup(headerLayout.createSequentialGroup()
+                .addContainerGap(442, Short.MAX_VALUE)
+                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(exitBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(442, 442, 442))))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(186, 186, 186)
+                .addGap(193, 193, 193)
                 .addComponent(jLabel1)
-                .addGap(0, 308, Short.MAX_VALUE))
+                .addGap(0, 335, Short.MAX_VALUE))
         );
 
-        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 550));
+        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,7 +125,7 @@ public class TransportWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMouseDragged
 
     private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
-        dispose();
+    dispose();
     }//GEN-LAST:event_exitTxtMouseClicked
 
     private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered

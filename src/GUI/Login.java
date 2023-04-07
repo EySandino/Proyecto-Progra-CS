@@ -29,6 +29,7 @@ public class Login extends javax.swing.JFrame {
 
         jTextField2 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -41,8 +42,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 370, 60));
 
+        jButton2.setText("Administrador");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 110, 30));
+
         jButton1.setText("Ingresar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 100, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 100, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/INICIO-SESION.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -88,6 +92,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;

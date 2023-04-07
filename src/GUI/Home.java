@@ -27,52 +27,61 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        btnProductos = new javax.swing.JButton();
+        btnCarrito = new javax.swing.JButton();
+        btnFavoritos = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
+        btnAfiliados = new javax.swing.JButton();
         btnViajes = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 930, 410));
 
-        jButton5.setBackground(new java.awt.Color(0, 0, 0));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/CARRITO.png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, -1, -1));
+        btnProductos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnProductos.setText("Productos");
+        btnProductos.setToolTipText("");
+        btnProductos.setBorder(null);
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 110, 40));
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 0));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/FAVORITOS.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, -1, -1));
+        btnCarrito.setBackground(new java.awt.Color(0, 0, 0));
+        btnCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/CARRITO.png"))); // NOI18N
+        btnCarrito.setBorder(null);
+        btnCarrito.setBorderPainted(false);
+        btnCarrito.setContentAreaFilled(false);
+        getContentPane().add(btnCarrito, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/PERFIL.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton3.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
+        btnFavoritos.setBackground(new java.awt.Color(0, 0, 0));
+        btnFavoritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/FAVORITOS.png"))); // NOI18N
+        btnFavoritos.setBorder(null);
+        btnFavoritos.setBorderPainted(false);
+        btnFavoritos.setContentAreaFilled(false);
+        getContentPane().add(btnFavoritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hospedaje", "Transporte", "Descuentos" }));
-        jComboBox1.setBorder(null);
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 140, 40));
+        btnPerfil.setBackground(new java.awt.Color(0, 0, 0));
+        btnPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/PERFIL.png"))); // NOI18N
+        btnPerfil.setBorder(null);
+        btnPerfil.setContentAreaFilled(false);
+        btnPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnPerfil.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        getContentPane().add(btnPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setText("Afiliados");
-        jButton2.setToolTipText("");
-        jButton2.setBorder(null);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 110, 40));
+        btnAfiliados.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnAfiliados.setText("Afiliados");
+        btnAfiliados.setToolTipText("");
+        btnAfiliados.setBorder(null);
+        btnAfiliados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAfiliadosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAfiliados, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 30, 110, 40));
 
         btnViajes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnViajes.setText("Viajes");
@@ -85,17 +94,27 @@ public class Home extends javax.swing.JFrame {
         });
         getContentPane().add(btnViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 110, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/HOME.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/HOME.jpg"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
         FlightWindow ventana1 = new FlightWindow();
-        jLabel2.add(ventana1);
         ventana1.show();
+
     }//GEN-LAST:event_btnViajesActionPerformed
+
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        ProductsWindow ventana2 = new ProductsWindow();
+        ventana2.show();
+    }//GEN-LAST:event_btnProductosActionPerformed
+
+    private void btnAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfiliadosActionPerformed
+        AffiliatesWindow ventana3 = new AffiliatesWindow();
+        ventana3.show();
+    }//GEN-LAST:event_btnAfiliadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,13 +152,12 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JButton btnAfiliados;
+    private javax.swing.JButton btnCarrito;
+    private javax.swing.JButton btnFavoritos;
+    private javax.swing.JButton btnPerfil;
+    private javax.swing.JButton btnProductos;
     private javax.swing.JButton btnViajes;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
