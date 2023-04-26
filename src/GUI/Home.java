@@ -4,6 +4,14 @@
  */
 package GUI;
 
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author Farg-
@@ -100,21 +108,18 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
-        FlightWindow ventana1 = new FlightWindow();
-        ventana1.show();
-
-    }//GEN-LAST:event_btnViajesActionPerformed
-
     private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        ProductsWindow ventana2 = new ProductsWindow();
-        ventana2.show();
+
     }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnAfiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAfiliadosActionPerformed
-        AffiliatesWindow ventana3 = new AffiliatesWindow();
-        ventana3.show();
+ 
     }//GEN-LAST:event_btnAfiliadosActionPerformed
+
+    private void btnViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViajesActionPerformed
+        FlightWindow v1 = new FlightWindow();
+        v1.show();
+    }//GEN-LAST:event_btnViajesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +146,9 @@ public class Home extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

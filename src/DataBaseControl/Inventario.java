@@ -1,10 +1,10 @@
-package ModuloProvedores;
+package DataBaseControl;
 
 /**
  *
  * @author Grupo8-Cliente/Servidor Concurrente
  */
 
-public class Vuelos {
+public class Inventario {
     
 }
