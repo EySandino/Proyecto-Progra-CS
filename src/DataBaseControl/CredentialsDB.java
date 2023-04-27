@@ -42,10 +42,10 @@ public class CredentialsDB {
         String encryptedPassword = cryptoTool.encrypt(password);
         
         PreparedStatement preparedStatement = dbConnection.prepareStatement("INSERT INTO users(username, email, password, shopping_history) VALUES("
-                + username + ","
-                + email + ","
-                + encryptedPassword + ","
-                + "NULL);");
+                + "'" + username + "'" + ","
+                + "'" + email + "'" + ","
+                + "'" + encryptedPassword + "'" + ","
+                + "' ');");
         preparedStatement.execute();
     }
 }

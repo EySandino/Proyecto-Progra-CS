@@ -1,9 +1,6 @@
 package AdminSystem;
 
-<<<<<<< HEAD
-=======
 import ControlBaseDatos.DBadminsystem;
->>>>>>> fce67f21496dadad6d7aaadb450e842cc960a428
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
