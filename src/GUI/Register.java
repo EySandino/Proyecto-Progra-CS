@@ -4,10 +4,9 @@
  */
 package GUI;
 
-/**
- *
- * @author Farg-
- */
+import DataBaseControl.CredentialsDB;
+import Security.Encryptor;
+        
 public class Register extends javax.swing.JFrame {
 
     /**
@@ -37,6 +36,11 @@ public class Register extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 100, 30));
 
         jPasswordField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
@@ -53,6 +57,26 @@ public class Register extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        String username = jTextField1.getText();
+        String email = jTextField2.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+        
+        Encryptor encryptor;
+        CredentialsDB dbConnection;
+        
+        try {
+            encryptor = new Encryptor();
+            dbConnection = new CredentialsDB();
+            String encryptedPassword = encryptor.encrypt(password);
+            
+            dbConnection.setNewUser(username, email, password);
+        }
+        catch (Exception e){
+        
+        }
+    }//GEN-LAST:event_jButton1MousePressed
 
     /**
      * @param args the command line arguments

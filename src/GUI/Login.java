@@ -1,18 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
-/**
- *
- * @author Farg-
- */
+import DataBaseControl.CredentialsDB;
+
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -27,33 +18,90 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        txtBadcreds = new javax.swing.JLabel();
+        txtUserEmail = new javax.swing.JTextField();
+        txtUserPassword = new javax.swing.JPasswordField();
+        btnAdminLogin = new javax.swing.JButton();
+        btnUserLogin = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder("Correo"));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 370, 60));
+        txtBadcreds.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        txtBadcreds.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(txtBadcreds, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 300, 20));
 
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 370, 60));
+        txtUserEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("Correo"));
+        getContentPane().add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 370, 60));
 
-        jButton2.setText("Administrador");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 110, 30));
+        txtUserPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
+        getContentPane().add(txtUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 370, 60));
 
-        jButton1.setText("Ingresar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 100, 30));
+        btnAdminLogin.setText("Administrador");
+        btnAdminLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAdminLoginMousePressed(evt);
+            }
+        });
+        getContentPane().add(btnAdminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 110, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/INICIO-SESION.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
+        btnUserLogin.setText("Ingresar");
+        btnUserLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnUserLoginMousePressed(evt);
+            }
+        });
+        getContentPane().add(btnUserLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 100, 30));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/INICIO-SESION.jpg"))); // NOI18N
+        background.setText("jLabel1");
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUserLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUserLoginMousePressed
+        CredentialsDB dbConection;
+        String dbPassword;
+        
+        String userEmail = txtUserEmail.getText();
+        String userPassword = String.valueOf(txtUserPassword.getPassword());
+
+        try{
+            dbConection = new CredentialsDB();
+            dbPassword = dbConection.getUserPassword(userEmail, CredentialsDB.usuarios);
+            
+            if (dbPassword.equals(userPassword)){
+                
+            }
+            else{
+                
+            }
+        }
+        catch (Exception e){}
+    }//GEN-LAST:event_btnUserLoginMousePressed
+
+    private void btnAdminLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminLoginMousePressed
+        CredentialsDB dbConection;
+        String dbPassword;
+        
+        String userEmail = txtUserEmail.getText();
+        String userPassword = String.valueOf(txtUserPassword.getPassword());
+
+        try{
+            dbConection = new CredentialsDB();
+            dbPassword = dbConection.getUserPassword(userEmail, CredentialsDB.administradores);
+            
+            if (dbPassword.equals(userPassword)){
+                
+            }
+            else{
+                txtBadcreds.setText("txtBadcreds");
+            }
+        }
+        catch (Exception e){}
+    }//GEN-LAST:event_btnAdminLoginMousePressed
 
     /**
      * @param args the command line arguments
@@ -91,10 +139,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel background;
+    private javax.swing.JButton btnAdminLogin;
+    private javax.swing.JButton btnUserLogin;
+    private javax.swing.JLabel txtBadcreds;
+    private javax.swing.JTextField txtUserEmail;
+    private javax.swing.JPasswordField txtUserPassword;
     // End of variables declaration//GEN-END:variables
 }
