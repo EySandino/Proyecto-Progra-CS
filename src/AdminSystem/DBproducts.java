@@ -68,6 +68,8 @@ public class DBproducts extends javax.swing.JFrame {
         btnModificarH = new javax.swing.JButton();
         btnEliminarH = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtPrecioH = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -293,42 +295,41 @@ public class DBproducts extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setText("Hospedaje");
 
+        jLabel14.setText("Precio:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUbicacion, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                                    .addComponent(txtCategoria)
-                                    .addComponent(txtNomHotel)
-                                    .addComponent(txtHabitacionD)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(btnAgregarH)
-                                .addGap(47, 47, 47)
-                                .addComponent(btnModificarH)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnEliminarH)))
-                        .addGap(0, 9, Short.MAX_VALUE)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(143, 143, 143))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtCategoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(txtUbicacion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtHabitacionD, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPrecioH, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomHotel)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnAgregarH)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnModificarH)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnEliminarH))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,6 +352,10 @@ public class DBproducts extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(txtHabitacionD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtPrecioH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarH)
@@ -533,18 +538,20 @@ public class DBproducts extends javax.swing.JFrame {
             DBadminsystem cc = new DBadminsystem();
             Connection cn = cc.DBcontrolProductos();
 
-            PreparedStatement ps = cn.prepareStatement("INSERT INTO hospedaje VALUES (?,?,?,?);");
+            PreparedStatement ps = cn.prepareStatement("INSERT INTO hospedaje VALUES (?,?,?,?,?);");
            
             String nombre_hotel = txtNomHotel.getText();
             String categoria = txtCategoria.getText();
             String ubicacion = txtUbicacion.getText();
             String habitaciones_disponibles = txtHabitacionD.getText();
+            String precio = txtPrecioH.getText();
 
             
             ps.setString(1, nombre_hotel);
             ps.setString(2, categoria);
             ps.setString(3, ubicacion);
             ps.setString(4, habitaciones_disponibles);
+            ps.setString(5, precio);
             ps.executeUpdate();
 
             limpiarCamposHospedaje();
@@ -564,6 +571,7 @@ public class DBproducts extends javax.swing.JFrame {
         txtCategoria.setText(TablaHospedaje.getValueAt(fila, 1).toString());
         txtUbicacion.setText(TablaHospedaje.getValueAt(fila, 2).toString());
         txtHabitacionD.setText(TablaHospedaje.getValueAt(fila, 3).toString());
+        txtPrecioH.setText(TablaHospedaje.getValueAt(fila, 3).toString());
     }//GEN-LAST:event_TablaHospedajeMouseClicked
 
     private void btnModificarHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarHActionPerformed
@@ -572,17 +580,19 @@ public class DBproducts extends javax.swing.JFrame {
             DBadminsystem cc = new DBadminsystem();
             Connection cn = cc.DBcontrolProductos();
 
-            PreparedStatement ps = cn.prepareStatement("UPDATE hospedaje SET categoria = ?, ubicacion = ?, habitaciones_disponibles = ? WHERE nombre_hotel = ?;");
+            PreparedStatement ps = cn.prepareStatement("UPDATE hospedaje SET categoria = ?, ubicacion = ?, habitaciones_disponibles = ?, precio = ? WHERE nombre_hotel = ?;");
 
             String nombre_hotel = txtNomHotel.getText();
             String categoria = txtCategoria.getText();
             String ubicacion = txtUbicacion.getText();
             String habitaciones_disponibles = txtHabitacionD.getText();
+            String precio = txtPrecioH.getText();
 
             ps.setString(1, categoria);
             ps.setString(2, ubicacion);
             ps.setString(3, habitaciones_disponibles);
-            ps.setString(4, nombre_hotel);
+            ps.setString(4, precio);
+            ps.setString(5, nombre_hotel);
             ps.executeUpdate();
 
             limpiarCamposHospedaje();
@@ -672,7 +682,8 @@ public class DBproducts extends javax.swing.JFrame {
             modelo.addColumn("Nombre");
             modelo.addColumn("Categoria");
             modelo.addColumn("Ubicacion");
-            modelo.addColumn("Habitaciones Dispo");
+            modelo.addColumn("Habitacion");
+            modelo.addColumn("Precio");
 
             DBadminsystem cc = new DBadminsystem();
             Connection cn = cc.DBcontrolProductos();
@@ -681,11 +692,12 @@ public class DBproducts extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("SELECT * FROM hospedaje");
 
             while (rs.next()) {
-                String[] fila = new String[4];
+                String[] fila = new String[5];
                 fila[0] = rs.getString(1);
                 fila[1] = rs.getString(2);
                 fila[2] = rs.getString(3);
                 fila[3] = rs.getString(4);
+                fila[4] = rs.getString(5);
                 modelo.addRow(fila);
             }
             TablaHospedaje.setModel(modelo);
@@ -701,6 +713,7 @@ public class DBproducts extends javax.swing.JFrame {
         txtCategoria.setText("");
         txtUbicacion.setText("");
         txtHabitacionD.setText("");
+        txtPrecioH.setText("");
         txtNomHotel.requestFocus();
     }
     
@@ -758,6 +771,7 @@ public class DBproducts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -778,6 +792,7 @@ public class DBproducts extends javax.swing.JFrame {
     private javax.swing.JTextField txtHabitacionD;
     private javax.swing.JTextField txtLlegada;
     private javax.swing.JTextField txtNomHotel;
+    private javax.swing.JTextField txtPrecioH;
     private javax.swing.JTextField txtPreciosT;
     private javax.swing.JTextField txtSalida;
     private javax.swing.JTextField txtUbicacion;

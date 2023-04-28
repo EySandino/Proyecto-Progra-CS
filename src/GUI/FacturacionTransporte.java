@@ -20,12 +20,12 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 
-public class FacturacionVuelos extends javax.swing.JFrame {
+public class FacturacionTransporte extends javax.swing.JFrame {
 
 
     int xMouse, yMouse;
 
-    public FacturacionVuelos() {
+    public FacturacionTransporte() {
         initComponents();
         codigoRandom();
         CargarDatosJcombox();
@@ -53,13 +53,11 @@ public class FacturacionVuelos extends javax.swing.JFrame {
 
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
-        txtAsientosDispo = new javax.swing.JTextField();
-        txtLLegada = new javax.swing.JTextField();
+        txtLlegada = new javax.swing.JTextField();
         txtSalida = new javax.swing.JTextField();
         txtDestino = new javax.swing.JTextField();
-        txtProvedor = new javax.swing.JTextField();
-        txtNumVueloFactura = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        txtAsientos = new javax.swing.JTextField();
+        txtCodigoViaje = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -72,7 +70,7 @@ public class FacturacionVuelos extends javax.swing.JFrame {
         jcbMetodoPago = new javax.swing.JComboBox<>();
         jcbDescuentos = new javax.swing.JComboBox<>();
         btnCalculoPrecios = new javax.swing.JButton();
-        txtPrecio = new javax.swing.JTextField();
+        txtPreciosT = new javax.swing.JTextField();
         txtNumFactura = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtEmision = new javax.swing.JTextField();
@@ -127,16 +125,11 @@ public class FacturacionVuelos extends javax.swing.JFrame {
         );
 
         getContentPane().add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, -1, -1));
-        getContentPane().add(txtAsientosDispo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 90, -1));
-        getContentPane().add(txtLLegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 200, -1));
+        getContentPane().add(txtLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 200, -1));
         getContentPane().add(txtSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 200, -1));
         getContentPane().add(txtDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 200, -1));
-        getContentPane().add(txtProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 200, -1));
-        getContentPane().add(txtNumVueloFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 90, -1));
-
-        jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel6.setText("Asiento:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+        getContentPane().add(txtAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 200, -1));
+        getContentPane().add(txtCodigoViaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 200, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel5.setText("Llegada:");
@@ -151,11 +144,11 @@ public class FacturacionVuelos extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel2.setText("Provedor:");
+        jLabel2.setText("Asiento");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLabel1.setText("# Vuelo:");
+        jLabel1.setText("Codigo de viaje");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -206,7 +199,7 @@ public class FacturacionVuelos extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCalculoPrecios, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 110, -1));
-        getContentPane().add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 80, -1));
+        getContentPane().add(txtPreciosT, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 80, -1));
         getContentPane().add(txtNumFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 80, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -314,7 +307,7 @@ public class FacturacionVuelos extends javax.swing.JFrame {
         double valor;
 
     // Obtener el valor actual del JTextField
-        String precio = txtPrecio.getText();
+        String precio = txtPreciosT.getText();
 
     // Verificar si el texto no está vacío antes de convertirlo a un número
         if (!precio.isEmpty()) {
@@ -351,7 +344,7 @@ public class FacturacionVuelos extends javax.swing.JFrame {
             String fecha_emision = txtEmision.getText();
             String detalles = txtDetalles.getText();
             String metodo_pago = jcbMetodoPago.getSelectedItem().toString();
-            String precio_bruto = txtPrecio.getText();
+            String precio_bruto = txtPreciosT.getText();
             String impuestos = txtImpuestos.getText();
             String descuentos_aplicados = jcbDescuentos.getSelectedItem().toString();
             String precio_neto = txtPrecioNeto.getText();
@@ -373,7 +366,7 @@ public class FacturacionVuelos extends javax.swing.JFrame {
             System.err.println(ex.getMessage());
         }
         dispose();
-        Boleto v1 = new Boleto();
+        Tickets v1 = new Tickets();
         v1.show();
     }//GEN-LAST:event_btnConfirmarCompraActionPerformed
 
@@ -383,11 +376,11 @@ public class FacturacionVuelos extends javax.swing.JFrame {
             DBadminsystem cc = new DBadminsystem();
             Connection cn = cc.DBcontrolProductos();
 
-            PreparedStatement ps = cn.prepareStatement("DELETE FROM vuelos  WHERE numero_vuelo = ?;");
+            PreparedStatement ps = cn.prepareStatement("DELETE FROM transporte WHERE numero_viaje = ?;");
 
-            int numero_vuelo = Integer.parseInt(txtNumVueloFactura.getText());
+            int numero_viaje = Integer.parseInt(txtCodigoViaje.getText());
 
-            ps.setInt(1, numero_vuelo);
+            ps.setInt(1, numero_viaje);
             ps.executeUpdate();
             
             JOptionPane.showMessageDialog(null, "Datos Confirmados exitósamente!");
@@ -518,7 +511,7 @@ public class FacturacionVuelos extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new FacturacionVuelos().setVisible(true);
+                new FacturacionTransporte().setVisible(true);
             }
         }
         );
@@ -543,24 +536,22 @@ public class FacturacionVuelos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> jcbDescuentos;
     private javax.swing.JComboBox<String> jcbMetodoPago;
-    public javax.swing.JTextField txtAsientosDispo;
+    public javax.swing.JTextField txtAsientos;
+    public javax.swing.JTextField txtCodigoViaje;
     public javax.swing.JTextField txtDestino;
     private javax.swing.JTextField txtDetalles;
     private javax.swing.JTextField txtEmision;
     private javax.swing.JTextField txtImpuestos;
-    public javax.swing.JTextField txtLLegada;
+    public javax.swing.JTextField txtLlegada;
     private javax.swing.JTextField txtNumFactura;
-    public javax.swing.JTextField txtNumVueloFactura;
-    public javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtPrecioNeto;
     private javax.swing.JTextField txtPrecioTaxs;
-    public javax.swing.JTextField txtProvedor;
+    public javax.swing.JTextField txtPreciosT;
     public javax.swing.JTextField txtSalida;
     // End of variables declaration//GEN-END:variables
 }

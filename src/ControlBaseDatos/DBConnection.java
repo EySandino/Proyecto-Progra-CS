@@ -29,12 +29,19 @@ public class DBConnection {
         dbConnection = DriverManager.getConnection(strConnection);
     }
 
-    public ResultSet getUserPassword(String inputEmail, String table) throws SQLException {
-        PreparedStatement preparedStatement = dbConnection.prepareStatement("SELECT contraseña FROM " + table + " WHERE correo_electronico = " + "'" + inputEmail + "'");
+    public String getUserPassword(String inputEmail, String table) throws SQLException {
+        PreparedStatement preparedStatement = dbConnection.prepareStatement("SELECT password FROM " + table + " WHERE email = ?");
+        preparedStatement.setString(1, inputEmail);
         ResultSet passwordQuery = preparedStatement.executeQuery();
 
-        return passwordQuery;
+        if (passwordQuery.next()) {
+            return passwordQuery.getString("password");
+        } else {
+            return null;
+        }
     }
+    
+
 
 //    public void sqliteCommandExecution(String command){
 //        try{

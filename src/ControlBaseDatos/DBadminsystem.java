@@ -11,7 +11,7 @@ public class DBadminsystem {
     public Connection DBcontrolProductos(){
         try{
             Class.forName("org.sqlite.JDBC");
-            dbConnection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\productos-ventas.db");
+            dbConnection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\productos-ventas.db");
         }catch(Exception e){
             System.out.println(e);
             
@@ -22,7 +22,7 @@ public class DBadminsystem {
         public Connection DBcontrolCredenciales(){
         try{
             Class.forName("org.sqlite.JDBC");
-            dbConnection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\credenciales.db");
+            dbConnection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\credenciales.db");
         }catch(Exception e){
             System.out.println(e);
             
@@ -32,7 +32,7 @@ public class DBadminsystem {
     public Connection DBcontrolVentas() {
         try {
             Class.forName("org.sqlite.JDBC");
-            dbConnection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\controlVentas.db");
+            dbConnection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\controlVentas.db");
         } catch (Exception e) {
             System.out.println(e);
 
