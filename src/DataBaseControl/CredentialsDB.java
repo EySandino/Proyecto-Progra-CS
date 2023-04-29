@@ -56,7 +56,7 @@ public String getUserPassword(String inputEmail, String table) throws SQLExcepti
         boolean isUserExist = false;
         String sql = "SELECT email FROM " + table + " WHERE email = ?";
 
-        try ( Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\ProyectoPrograCS-G8\\src\\DB\\credenciales.db");  PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        try ( Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Farg-\\Documents\\NetBeansProjects\\ProyectoPrograCS-G8\\src\\DB\\credenciales.db");  PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, userEmail);
             ResultSet rs = pstmt.executeQuery();

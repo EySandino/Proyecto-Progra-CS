@@ -2,6 +2,7 @@ package GUI;
 
 import AdminSystem.AdministrationSystem;
 import DataBaseControl.CredentialsDB;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -28,9 +29,13 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnAdminLogin = new javax.swing.JButton();
         btnUserLogin = new javax.swing.JButton();
+        exitBtn = new javax.swing.JPanel();
+        exitTxt = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(950, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ATRAS.png"))); // NOI18N
@@ -39,16 +44,16 @@ public class Login extends javax.swing.JFrame {
                 btnAtrasMousePressed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 30, -1, -1));
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         txtBadcreds.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         txtBadcreds.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(txtBadcreds, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 300, 20));
 
-        txtUserEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        txtUserEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 370, 40));
 
-        txtUserPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        txtUserPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 370, 40));
 
         jLabel2.setText("Contraseña:");
@@ -81,6 +86,38 @@ public class Login extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUserLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 100, 30));
+
+        exitBtn.setBackground(new java.awt.Color(255, 255, 255));
+
+        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitTxt.setText("X");
+        exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitTxt.setPreferredSize(new java.awt.Dimension(40, 40));
+        exitTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout exitBtnLayout = new javax.swing.GroupLayout(exitBtn);
+        exitBtn.setLayout(exitBtnLayout);
+        exitBtnLayout.setHorizontalGroup(
+            exitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        exitBtnLayout.setVerticalGroup(
+            exitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/INICIO-SESION.jpg"))); // NOI18N
         background.setText("jLabel1");
@@ -169,6 +206,20 @@ public class Login extends javax.swing.JFrame {
         v1.show();
     }//GEN-LAST:event_btnAtrasMousePressed
 
+    private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
+        dispose();
+    }//GEN-LAST:event_exitTxtMouseClicked
+
+    private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered
+        exitBtn.setBackground(Color.red);
+        exitTxt.setForeground(Color.white);
+    }//GEN-LAST:event_exitTxtMouseEntered
+
+    private void exitTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseExited
+        exitBtn.setBackground(Color.white);
+        exitTxt.setForeground(Color.black);
+    }//GEN-LAST:event_exitTxtMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -209,6 +260,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnAdminLogin;
     private javax.swing.JLabel btnAtras;
     private javax.swing.JButton btnUserLogin;
+    private javax.swing.JPanel exitBtn;
+    private javax.swing.JLabel exitTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel txtBadcreds;

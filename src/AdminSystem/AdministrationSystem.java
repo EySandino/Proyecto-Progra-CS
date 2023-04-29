@@ -5,6 +5,8 @@
 package AdminSystem;
 
 import ControlBaseDatos.DBadminsystem;
+import GUI.InicioProyecto;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,10 +67,16 @@ public class AdministrationSystem extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaFacturas = new javax.swing.JTable();
+        exitBtn = new javax.swing.JPanel();
+        exitTxt = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(950, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnDBprovedores.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -80,7 +88,7 @@ public class AdministrationSystem extends javax.swing.JFrame {
                 btnDBprovedoresActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDBprovedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 40, 120, 40));
+        getContentPane().add(btnDBprovedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 60, 120, 40));
 
         btnDBempleados.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDBempleados.setText("DB Empleados");
@@ -91,7 +99,7 @@ public class AdministrationSystem extends javax.swing.JFrame {
                 btnDBempleadosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDBempleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 120, 40));
+        getContentPane().add(btnDBempleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 120, 40));
 
         btnDBusuarios.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDBusuarios.setText("DB Usuarios");
@@ -102,7 +110,7 @@ public class AdministrationSystem extends javax.swing.JFrame {
                 btnDBusuariosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDBusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 110, 40));
+        getContentPane().add(btnDBusuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 110, 40));
 
         btnDBproductos.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDBproductos.setText("DB Productos");
@@ -113,7 +121,7 @@ public class AdministrationSystem extends javax.swing.JFrame {
                 btnDBproductosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDBproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, 130, 40));
+        getContentPane().add(btnDBproductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 130, 40));
 
         btnDBviajes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnDBviajes.setText("DB Viajes");
@@ -124,7 +132,7 @@ public class AdministrationSystem extends javax.swing.JFrame {
                 btnDBviajesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDBviajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 110, 40));
+        getContentPane().add(btnDBviajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 110, 40));
 
         btnFacturaIndividual.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         btnFacturaIndividual.setText("Factura Individual");
@@ -229,12 +237,55 @@ public class AdministrationSystem extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 347, 910, 190));
 
+        exitBtn.setBackground(new java.awt.Color(255, 255, 255));
+
+        exitTxt.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
+        exitTxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitTxt.setText("X");
+        exitTxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitTxt.setPreferredSize(new java.awt.Dimension(40, 40));
+        exitTxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitTxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitTxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitTxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout exitBtnLayout = new javax.swing.GroupLayout(exitBtn);
+        exitBtn.setLayout(exitBtnLayout);
+        exitBtnLayout.setHorizontalGroup(
+            exitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        exitBtnLayout.setVerticalGroup(
+            exitBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(exitTxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, -1, -1));
+
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Administracion");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/DISEÑOCOMPLETO.jpg"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/LOGOBANNER.jpg"))); // NOI18N
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        btnCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/CERRAR-SESION.png"))); // NOI18N
+        btnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnCerrarSesionMousePressed(evt);
+            }
+        });
+        getContentPane().add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 540, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/FONDO2.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -378,6 +429,26 @@ public class AdministrationSystem extends javax.swing.JFrame {
         DBFactuIndividual v6 = new DBFactuIndividual();
         v6.show();
     }//GEN-LAST:event_btnFacturaIndividualActionPerformed
+
+    private void btnCerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarSesionMousePressed
+        hide();
+        InicioProyecto v1 = new InicioProyecto();
+        v1.show();
+    }//GEN-LAST:event_btnCerrarSesionMousePressed
+
+    private void exitTxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_exitTxtMouseClicked
+
+    private void exitTxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseEntered
+        exitBtn.setBackground(Color.red);
+        exitTxt.setForeground(Color.white);
+    }//GEN-LAST:event_exitTxtMouseEntered
+
+    private void exitTxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitTxtMouseExited
+        exitBtn.setBackground(Color.white);
+        exitTxt.setForeground(Color.black);
+    }//GEN-LAST:event_exitTxtMouseExited
     //METODO PARA CARGAR DATOS DE LA DB DE FACTURAS
     public void cargarDatosFacturas() {
         try {
@@ -467,6 +538,7 @@ public class AdministrationSystem extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaFacturas;
     private javax.swing.JButton btnAgregarFactura;
+    private javax.swing.JLabel btnCerrarSesion;
     private javax.swing.JButton btnDBempleados;
     private javax.swing.JButton btnDBproductos;
     private javax.swing.JButton btnDBprovedores;
@@ -475,9 +547,12 @@ public class AdministrationSystem extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarFactura;
     private javax.swing.JButton btnFacturaIndividual;
     private javax.swing.JButton btnModificarFactura;
+    private javax.swing.JPanel exitBtn;
+    private javax.swing.JLabel exitTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
