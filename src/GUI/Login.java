@@ -1,9 +1,13 @@
 package GUI;
 
+<<<<<<< HEAD
 import AdminSystem.AdministrationSystem;
 import DataBaseControl.CredentialsDB;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+=======
+import DataBaseControl.CredentialsDB;
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
 
 public class Login extends javax.swing.JFrame {
 
@@ -21,6 +25,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         btnAtras = new javax.swing.JLabel();
         txtBadcreds = new javax.swing.JLabel();
         txtUserEmail = new javax.swing.JTextField();
@@ -31,6 +36,13 @@ public class Login extends javax.swing.JFrame {
         btnUserLogin = new javax.swing.JButton();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
+=======
+        txtBadcreds = new javax.swing.JLabel();
+        txtUserEmail = new javax.swing.JTextField();
+        txtUserPassword = new javax.swing.JPasswordField();
+        btnAdminLogin = new javax.swing.JButton();
+        btnUserLogin = new javax.swing.JButton();
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,6 +50,7 @@ public class Login extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(950, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+<<<<<<< HEAD
         btnAtras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/ATRAS.png"))); // NOI18N
         btnAtras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -74,12 +87,33 @@ public class Login extends javax.swing.JFrame {
 
         btnUserLogin.setBackground(new java.awt.Color(0, 0, 0));
         btnUserLogin.setForeground(new java.awt.Color(255, 255, 255));
+=======
+        txtBadcreds.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        txtBadcreds.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(txtBadcreds, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 510, 300, 20));
+
+        txtUserEmail.setBorder(javax.swing.BorderFactory.createTitledBorder("Correo"));
+        getContentPane().add(txtUserEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 370, 60));
+
+        txtUserPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
+        getContentPane().add(txtUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 370, 60));
+
+        btnAdminLogin.setText("Administrador");
+        btnAdminLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnAdminLoginMousePressed(evt);
+            }
+        });
+        getContentPane().add(btnAdminLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 430, 110, 30));
+
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         btnUserLogin.setText("Ingresar");
         btnUserLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnUserLoginMousePressed(evt);
             }
         });
+<<<<<<< HEAD
         btnUserLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUserLoginActionPerformed(evt);
@@ -119,6 +153,10 @@ public class Login extends javax.swing.JFrame {
 
         getContentPane().add(exitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 0, -1, -1));
 
+=======
+        getContentPane().add(btnUserLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 100, 30));
+
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/INICIO-SESION.jpg"))); // NOI18N
         background.setText("jLabel1");
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, -1));
@@ -133,6 +171,7 @@ public class Login extends javax.swing.JFrame {
         String userEmail = txtUserEmail.getText();
         String userPassword = String.valueOf(txtUserPassword.getPassword());
 
+<<<<<<< HEAD
         try {
             dbConection = new CredentialsDB();
             boolean isUserExist = dbConection.checkUserExistence(userEmail, CredentialsDB.usuarios);
@@ -163,11 +202,30 @@ public class Login extends javax.swing.JFrame {
 
     private void btnAdminLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminLoginMousePressed
         CredentialsDB dbConnection;
+=======
+        try{
+            dbConection = new CredentialsDB();
+            dbPassword = dbConection.getUserPassword(userEmail, CredentialsDB.usuarios);
+            
+            if (dbPassword.equals(userPassword)){
+                
+            }
+            else{
+                
+            }
+        }
+        catch (Exception e){}
+    }//GEN-LAST:event_btnUserLoginMousePressed
+
+    private void btnAdminLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminLoginMousePressed
+        CredentialsDB dbConection;
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         String dbPassword;
         
         String userEmail = txtUserEmail.getText();
         String userPassword = String.valueOf(txtUserPassword.getPassword());
 
+<<<<<<< HEAD
         try {
             dbConnection = new CredentialsDB();
 
@@ -222,6 +280,22 @@ public class Login extends javax.swing.JFrame {
         exitTxt.setForeground(Color.black);
     }//GEN-LAST:event_exitTxtMouseExited
 
+=======
+        try{
+            dbConection = new CredentialsDB();
+            dbPassword = dbConection.getUserPassword(userEmail, CredentialsDB.administradores);
+            
+            if (dbPassword.equals(userPassword)){
+                
+            }
+            else{
+                txtBadcreds.setText("txtBadcreds");
+            }
+        }
+        catch (Exception e){}
+    }//GEN-LAST:event_btnAdminLoginMousePressed
+
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
     /**
      * @param args the command line arguments
      */
@@ -260,12 +334,16 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton btnAdminLogin;
+<<<<<<< HEAD
     private javax.swing.JLabel btnAtras;
     private javax.swing.JButton btnUserLogin;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+=======
+    private javax.swing.JButton btnUserLogin;
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
     private javax.swing.JLabel txtBadcreds;
     private javax.swing.JTextField txtUserEmail;
     private javax.swing.JPasswordField txtUserPassword;

@@ -2,12 +2,15 @@ package GUI;
 
 import DataBaseControl.CredentialsDB;
 import Security.Encryptor;
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+=======
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         
 public class Register extends javax.swing.JFrame {
 
@@ -24,6 +27,7 @@ public class Register extends javax.swing.JFrame {
     private void initComponents() {
 
         btnRegister = new javax.swing.JButton();
+<<<<<<< HEAD
         txtjPass = new javax.swing.JPasswordField();
         txtID = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
@@ -35,6 +39,11 @@ public class Register extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         exitBtn = new javax.swing.JPanel();
         exitTxt = new javax.swing.JLabel();
+=======
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,16 +52,24 @@ public class Register extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(950, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+<<<<<<< HEAD
         btnRegister.setBackground(new java.awt.Color(0, 0, 0));
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Registrarse");
         btnRegister.setBorderPainted(false);
+=======
+        btnRegister.setText("Registrarse");
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 btnRegisterMousePressed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, 110, 30));
+=======
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 450, 100, 30));
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
 
         txtjPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtjPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 310, 30));
@@ -129,6 +146,7 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMousePressed
+<<<<<<< HEAD
         String id = txtID.getText();
         String username = txtNombre.getText();
         String email = txtCorreo.getText();
@@ -145,10 +163,25 @@ public class Register extends javax.swing.JFrame {
             Home v1 = new Home();
             v1.show();
         } catch (Exception e) {
+=======
+        String username = jTextField1.getText();
+        String email = jTextField2.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
+
+        Encryptor encryptor;
+        CredentialsDB dbConnection;
+        
+        try {
+            dbConnection = new CredentialsDB();
+            dbConnection.setNewUser(username, email, password);
+        }
+        catch (Exception e){
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
             System.out.println(e);
         }
     }//GEN-LAST:event_btnRegisterMousePressed
 
+<<<<<<< HEAD
     private void btnAtrasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtrasMousePressed
         hide();
         InicioProyecto v1 = new InicioProyecto();
@@ -189,6 +222,8 @@ public class Register extends javax.swing.JFrame {
 // Iniciar el temporizador
         timer.start();
     }
+=======
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
     /**
      * @param args the command line arguments
      */
@@ -225,10 +260,14 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JLabel btnAtras;
     private javax.swing.JButton btnRegister;
     private javax.swing.JPanel exitBtn;
     private javax.swing.JLabel exitTxt;
+=======
+    private javax.swing.JButton btnRegister;
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

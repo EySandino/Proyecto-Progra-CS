@@ -3,6 +3,10 @@ package DataBaseControl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+<<<<<<< HEAD
+=======
+import ModuloProductos.Vuelos;
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

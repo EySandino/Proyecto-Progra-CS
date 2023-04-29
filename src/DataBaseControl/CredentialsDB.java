@@ -65,6 +65,7 @@ public class CredentialsDB {
         closeConnection();
     }
     
+<<<<<<< HEAD
     public void setNewUser(String id, String username, String email, String password) throws SQLException{
         openConnection();
  
@@ -73,6 +74,16 @@ public class CredentialsDB {
                 + "'" + username + "'" + ","
                 + "'" + email + "'" + ","
                 + "'" + cryptoTool.encrypt(password) + "'" + ",' ');");
+=======
+    public void setNewUser(String username, String email, String password) throws SQLException{
+        String encryptedPassword = cryptoTool.encrypt(password);
+        
+        PreparedStatement preparedStatement = dbConnection.prepareStatement("INSERT INTO users(username, email, password, shopping_history) VALUES("
+                + "'" + username + "'" + ","
+                + "'" + email + "'" + ","
+                + "'" + encryptedPassword + "'" + ","
+                + "' ');");
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
         preparedStatement.execute();
         
         closeConnection();

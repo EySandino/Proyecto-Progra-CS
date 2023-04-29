@@ -32,6 +32,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnRegister">
       <Properties>
+<<<<<<< HEAD
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
@@ -40,6 +41,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Registrarse"/>
         <Property name="borderPainted" type="boolean" value="false"/>
+=======
+        <Property name="text" type="java.lang.String" value="Registrarse"/>
+>>>>>>> 73e39a7423216a0cb495b8ea898ead0907cb7902
       </Properties>
       <Events>
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRegisterMousePressed"/>
