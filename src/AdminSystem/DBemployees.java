@@ -1,5 +1,7 @@
 package AdminSystem;
 
+import DataBaseControl.CredentialsDB;
+import Security.Encryptor;
 import ControlBaseDatos.DBadminsystem;
 import java.awt.Color;
 import java.sql.Connection;
@@ -11,12 +13,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class DBemployees extends javax.swing.JFrame {
-    
-    
+
     int xMouse, yMouse;
+    Encryptor cryptoTool;
+    CredentialsDB dbTool;
     
     public DBemployees() {
         initComponents();
+        cryptoTool = new Encryptor();
+        dbTool = new CredentialsDB();
         cargarDatosEmpleados();
         this.setLocationRelativeTo(null);
     }
@@ -293,28 +298,30 @@ public class DBemployees extends javax.swing.JFrame {
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
         // codigo para agregar datos a la DB
         try {
-            DBadminsystem  cc = new DBadminsystem ();
-            Connection cn = cc.DBcontrolCredenciales();
             
-            PreparedStatement ps = cn.prepareStatement("INSERT INTO admins VALUES (?,?,?,?,?);");
+//            DBadminsystem cc = new DBadminsystem ();
+//            Connection cn = cc.DBcontrolCredenciales();
+//            
+//            PreparedStatement ps = cn.prepareStatement("INSERT INTO admins VALUES (?,?,?,?,?);");
             
             String id = txtIDADM.getText();
             String username = txtUsernameADM.getText();
             String email = txtEmail.getText();
-            String password = txtPass.getText();
+            String password = cryptoTool.encrypt(txtPass.getText());
             String access_level = txtRango.getText();
             
-            ps.setString(1, id);
-            ps.setString(2, username);
-            ps.setString(3, email);
-            ps.setString(4, password);
-            ps.setString(5, access_level);
-            ps.executeUpdate();
+            dbTool.setNewAdmin(id, username, email, password, access_level);
             
             limpiar();
             cargarDatosEmpleados();
             JOptionPane.showMessageDialog(null, "Datos guardados exitósamente!");
-
+            
+//            ps.setString(1, id);
+//            ps.setString(2, username);
+//            ps.setString(3, email);
+//            ps.setString(4, password);
+//            ps.setString(5, access_level);
+//            ps.executeUpdate();
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -364,7 +371,7 @@ public class DBemployees extends javax.swing.JFrame {
             String id = txtIDADM.getText();
             String username = txtUsernameADM.getText();
             String email = txtEmail.getText();
-            String password = txtPass.getText();
+            String password = cryptoTool.encrypt(txtPass.getText());
             String access_level = txtRango.getText();
 
             
@@ -404,7 +411,7 @@ public class DBemployees extends javax.swing.JFrame {
                 fila[0] = rs.getString(1);
                 fila[1] = rs.getString(2);
                 fila[2] = rs.getString(3);
-                fila[3] = rs.getString(4);
+                fila[3] = cryptoTool.decrypt(rs.getString(4));
                 fila[4] = rs.getString(5);
 
                 modelo.addRow(fila);

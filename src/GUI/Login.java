@@ -156,7 +156,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "El correo electrónico ingresado no existe. Por favor inténtalo de nuevo.");
             }
         } catch (Exception e) {
-            // Manejo de excepciones
+            txtBadcreds.setText("Credenciales incorrectas");
         }
 
     }//GEN-LAST:event_btnUserLoginMousePressed
@@ -164,6 +164,7 @@ public class Login extends javax.swing.JFrame {
     private void btnAdminLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdminLoginMousePressed
         CredentialsDB dbConnection;
         String dbPassword;
+        
         String userEmail = txtUserEmail.getText();
         String userPassword = String.valueOf(txtUserPassword.getPassword());
 
@@ -191,7 +192,8 @@ public class Login extends javax.swing.JFrame {
                 txtBadcreds.setText("Usuario no encontrado");
             }
         } catch (Exception e) {
-            // Manejar la excepción
+            txtBadcreds.setText("Error");
+            System.out.println(e);
         }
 
     }//GEN-LAST:event_btnAdminLoginMousePressed

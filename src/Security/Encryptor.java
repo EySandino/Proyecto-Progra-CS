@@ -16,6 +16,7 @@ public class Encryptor {
         try{
             BufferedReader dataReader = new BufferedReader(new FileReader("src\\Security\\regularCharList.txt"));
             charList = dataReader.readLine().toCharArray();
+            
             dataReader.close();
         }
         catch(Exception e){}
@@ -25,6 +26,7 @@ public class Encryptor {
         try{
             BufferedReader dataReader = new BufferedReader(new FileReader("src\\Security\\seed.txt"));
             seed = dataReader.readLine().toCharArray();
+
             dataReader.close();
         }
         catch(Exception e){}
@@ -51,7 +53,7 @@ public class Encryptor {
         
         for(char i : inputArray){
             for(int j = 0; j < seed.length; j++){
-                if(i == charList[j]){
+                if(i == seed[j]){
                     decryptedOutput += charList[j];
                 }
             }
